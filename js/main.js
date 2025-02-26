@@ -37,21 +37,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile Menu Handling
+    const navMenu = document.querySelector('.nav-menu');
+
     function toggleMenu() {
+        navMenu.classList.toggle('active');
         document.body.classList.toggle('menu-open');
-        navLinks.classList.toggle('active');
-        menuOverlay.classList.toggle('visible');
     }
 
     function closeMenuHandler() {
+        navMenu.classList.remove('active');
         document.body.classList.remove('menu-open');
-        navLinks.classList.remove('active');
-        menuOverlay.classList.remove('visible');
     }
 
     menuBtn.addEventListener('click', toggleMenu);
     closeMenu.addEventListener('click', closeMenuHandler);
-    menuOverlay.addEventListener('click', closeMenuHandler);
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            closeMenuHandler();
+        }
+    });
 
     // Close menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
