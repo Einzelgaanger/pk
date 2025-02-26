@@ -1,0 +1,232 @@
+/* Forex Page Styles */
+.forex-hero {
+    padding-top: 6rem;
+    min-height: calc(100vh - 6rem);
+    background: var(--gradient-primary);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.forex-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/kplogo.png');
+    opacity: 0.1;
+    animation: float 20s linear infinite;
+}
+
+.forex-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.trading-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    transition: var(--transition-medium);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card .number {
+    font-size: 3.6rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin-bottom: 1rem;
+}
+
+/* Live Markets Section */
+.live-markets {
+    padding-top: calc(6rem + 4rem);
+    background: var(--light-bg);
+}
+
+.tradingview-widget-container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Trading Philosophy */
+.trading-philosophy {
+    padding: 8rem 0;
+    background: white;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.philosophy-card {
+    background: var(--light-bg);
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition-medium);
+}
+
+.philosophy-card:hover::before {
+    transform: scaleX(1);
+}
+
+.philosophy-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.philosophy-card i {
+    font-size: 3.6rem;
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+}
+
+/* Training Programs */
+.training-programs {
+    background: var(--light-bg);
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+/* Success Stories */
+.success-stories {
+    background: white;
+}
+
+.testimonials-swiper {
+    padding: 4rem 2rem;
+}
+
+/* Trading Results */
+.trading-results {
+    padding: 8rem 0;
+    background: var(--light-bg);
+}
+
+.results-chart {
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Trading Tips */
+.trading-tips {
+    padding: 8rem 0;
+    background: var(--light-bg);
+}
+
+.tips-swiper {
+    padding: 4rem 0;
+}
+
+.tip-card {
+    background: white;
+    padding: 3rem;
+    border-border-radius: 15px;
+    box-shadow: var(--shadow-md);
+    height: 100%;
+}
+
+.tip-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.tip-icon i {
+    font-size: 2.4rem;
+    color: var(--accent-color);
+}
+
+/* Animations */
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50%, -50%); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .trading-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .philosophy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .forex-hero {
+        padding-top: 5rem;
+    }
+    
+    .trading-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .results-chart {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .trading-stats {
+        grid-template-columns: 1fr;
+    }
+} 

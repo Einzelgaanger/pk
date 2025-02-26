@@ -1,0 +1,179 @@
+/* Vision Page Styles */
+.vision-hero {
+    padding-top: 6rem; /* Match navbar height */
+    min-height: calc(100vh - 6rem); /* Subtract navbar height */
+    background: var(--gradient-primary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.vision-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/kplogo.png');
+    opacity: 0.1;
+    animation: floatPattern 20s linear infinite;
+}
+
+.vision-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 2rem;
+}
+
+.vision-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    transition: var(--transition-medium);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-card .number {
+    font-size: 4.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Key Pillars Section */
+.key-pillars {
+    padding: 10rem 0;
+    background: var(--light-bg);
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 5rem;
+}
+
+.pillar-card {
+    background: white;
+    padding: 4rem 3rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    transition: var(--transition-medium);
+}
+
+.pillar-card:hover {
+    transform: translateY(-10px);
+}
+
+.pillar-card i {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 10rem 0;
+    background: white;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--gradient-primary);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 6rem;
+    width: calc(50% - 4rem);
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+/* Map Section */
+.constituency-map {
+    padding: 10rem 0;
+    background: var(--light-bg);
+}
+
+.map-container {
+    height: 600px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* Animations */
+@keyframes floatPattern {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50%, -50%); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .vision-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .vision-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 3rem;
+    }
+    
+    .timeline::before {
+        left: 0;
+    }
+    
+    .vision-hero {
+        padding-top: 5rem; /* Match scrolled navbar height */
+    }
+} 
