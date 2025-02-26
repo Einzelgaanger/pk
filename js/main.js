@@ -1,28 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS for all pages
+    // Initialize AOS
     AOS.init({
         duration: 800,
         offset: 100,
-        once: true
+        once: true,
+        mirror: false
     });
 
-    // Navbar Functionality
+    // Navbar Scroll Handling
     const navbar = document.querySelector('.navbar');
-    const hamburger = document.querySelector('.hamburger');
+    const menuBtn = document.querySelector('.menu-btn');
+    const closeMenu = document.querySelector('.close-menu');
     const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
+    const menuOverlay = document.createElement('div');
+    menuOverlay.className = 'menu-overlay';
+    document.body.appendChild(menuOverlay);
+    let lastScroll = 0;
 
-    // Sticky Navbar
-    let lastScroll = window.pageYOffset;
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
+        // Add/remove scrolled class
+        if (currentScroll > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
 
+        // Hide/show navbar on scroll
         if (currentScroll > lastScroll && currentScroll > 500) {
             navbar.classList.add('nav-hidden');
         } else {
@@ -31,30 +36,63 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
-    // Mobile Menu Toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+    // Mobile Menu Handling
+    function toggleMenu() {
+        document.body.classList.toggle('menu-open');
         navLinks.classList.toggle('active');
-        body.classList.toggle('menu-open');
-    });
+        menuOverlay.classList.toggle('visible');
+    }
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
-        }
-    });
+    function closeMenuHandler() {
+        document.body.classList.remove('menu-open');
+        navLinks.classList.remove('active');
+        menuOverlay.classList.remove('visible');
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    closeMenu.addEventListener('click', closeMenuHandler);
+    menuOverlay.addEventListener('click', closeMenuHandler);
 
     // Close menu when clicking a link
     navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
-            body.classList.remove('menu-open');
-        });
+        link.addEventListener('click', closeMenuHandler);
     });
+
+    // Stats Counter Animation
+    const stats = document.querySelectorAll('[data-count]');
+    
+    function animateStats() {
+        stats.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            const duration = 2000;
+            let start = 0;
+            const increment = target / (duration / 16);
+
+            function updateCount() {
+                start += increment;
+                if (start < target) {
+                    stat.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    stat.textContent = target;
+                }
+            }
+
+            updateCount();
+        });
+    }
+
+    // Intersection Observer for Stats
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateStats();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    stats.forEach(stat => statsObserver.observe(stat));
 
     // Smooth Scroll for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -62,13 +100,64 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const headerOffset = 100;
+                const elementPosition = target.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
+
+    // Form Validation and Submission
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            try {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                showNotification('Success! Thank you for your submission.', 'success');
+                form.reset();
+            } catch (error) {
+                showNotification('Something went wrong. Please try again.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    });
+
+    // Notification System
+    function showNotification(message, type = 'success') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <p>${message}</p>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+        
+        setTimeout(() => notification.classList.add('show'), 100);
+        
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    }
 
     // Page Loading Animation
     window.addEventListener('load', () => {
@@ -102,22 +191,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize image preloading
     preloadImages();
-
-    // Global Notification System
-    window.showNotification = (message, type = 'success') => {
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-            <p>${message}</p>
-        `;
-        
-        document.body.appendChild(notification);
-        setTimeout(() => notification.classList.add('show'), 100);
-        
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 5000);
-    };
 });

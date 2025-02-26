@@ -7,7 +7,7 @@
     <meta name="description" content="Join Kenyan Prince's vision for transforming Starehe constituency through youth empowerment, digital innovation, and community development.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
@@ -16,114 +16,277 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="assets/images/kplogo.png" alt="KP Logo">
+                <img src="assets/images/kplogo.png" alt="KP Logo" width="45" height="45">
                 <span>Kenyan Prince</span>
             </div>
+            <button class="menu-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="forex.html">Forex</a>
-                <a href="vision.html">Vision 2027</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="social-nav">
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <a href="index.html" class="active">
+                    <i class="fas fa-home"></i>Home
+                </a>
+                <a href="about.html">
+                    <i class="fas fa-user"></i>About
+                </a>
+                <a href="forex.html">
+                    <i class="fas fa-chart-line"></i>Forex
+                </a>
+                <a href="vision.html">
+                    <i class="fas fa-eye"></i>Vision 2027
+                </a>
+                <a href="blog.html">
+                    <i class="fas fa-blog"></i>Blog
+                </a>
+                <a href="contact.html">
+                    <i class="fas fa-envelope"></i>Contact
+                </a>
+                <div class="nav-social">
+                    <a href="#" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
+    <div class="menu-overlay"></div>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Transforming Starehe</h1>
-            <h2>Through Youth Innovation</h2>
-            <p class="tagline">Building Tomorrow's Leaders Today</p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="number">5000+</span>
-                    <span class="label">Youth Trained</span>
-                </div>
-                <div class="stat">
-                    <span class="number">20+</span>
-                    <span class="label">Community Projects</span>
-                </div>
-                <div class="stat">
-                    <span class="number">100M+</span>
-                    <span class="label">Trading Volume</span>
-                </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <h1>Transforming Starehe</h1>
+                <h2>Through Youth Innovation</h2>
+                <p class="hero-description">
+                    Empowering the next generation through digital skills, financial literacy, and community development initiatives.
+                </p>
             </div>
-            <div class="cta-buttons">
-                <a href="vision.html" class="btn btn-primary">Explore Vision 2027</a>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="5000">741</div>
+                    <div class="stat-label">Youth Trained</div>
+                </div>
+                <!-- More stat cards... -->
+            </div>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="vision.html" class="btn btn-primary">
+                    <i class="fas fa-arrow-right"></i>
+                    Explore Vision 2027
+                </a>
                 <button class="btn btn-secondary" id="watchStoryBtn">
-                    <i class="fas fa-play"></i> Watch My Story
+                    <i class="fas fa-play"></i>
+                    Watch My Story
                 </button>
             </div>
         </div>
-        <div class="hero-scroll">
-            <span>Discover More</span>
-            <i class="fas fa-chevron-down"></i>
+        <div class="hero-media">
+            <picture>
+                <source 
+                    srcset="assets/images/kplogo.png" 
+                    media="(max-width: 768px)"
+                    type="image/webp"
+                >
+                <source 
+                    srcset="assets/images/kplogo.png" 
+                    media="(min-width: 769px)"
+                    type="image/webp"
+                >
+                <img 
+                    src="assets/images/kplogo.png" 
+                    alt="Kenyan Prince with community members"
+                    width="1200"
+                    height="800"
+                    loading="eager"
+                >
+            </picture>
         </div>
     </section>
 
     <!-- Impact Section -->
-    <section class="impact section">
+    <section class="impact-section">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2>Creating Real Impact</h2>
                 <p>Transforming lives through innovation and empowerment</p>
             </div>
+            
             <div class="impact-grid">
+                <div class="impact-card" data-aos="fade-up">
+                    <div class="impact-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Digital Skills</h3>
+                    <div class="impact-stats">
+                        <div class="stat">
+                            <span class="number">500+</span>
+                            <span>Web Developers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">300+</span>
+                            <span>App Developers</span>
+                        </div>
+                    </div>
+                    <p>Comprehensive training in modern web technologies, mobile app development, and digital marketing.</p>
+                    <ul class="impact-features">
+                        <li><i class="fas fa-check"></i>Full-Stack Development</li>
+                        <li><i class="fas fa-check"></i>UI/UX Design</li>
+                        <li><i class="fas fa-check"></i>Mobile Development</li>
+                    </ul>
+                    <a href="programs.html" class="impact-link">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
                 <div class="impact-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="impact-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Digital Skills Training</h3>
-                    <p>Empowering youth with modern technical skills for the digital economy</p>
-                    <ul class="impact-list">
-                        <li>500+ Certified in Web Development</li>
-                        <li>300+ Mobile App Developers</li>
-                        <li>1000+ Digital Marketing Graduates</li>
+                    <h3>Forex Trading</h3>
+                    <div class="impact-stats">
+                        <div class="stat">
+                            <span class="number">1000+</span>
+                            <span>Active Traders</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">$100M+</span>
+                            <span>Trading Volume</span>
+                        </div>
+                    </div>
+                    <p>Professional forex trading education with proven strategies and risk management techniques.</p>
+                    <ul class="impact-features">
+                        <li><i class="fas fa-check"></i>Technical Analysis</li>
+                        <li><i class="fas fa-check"></i>Risk Management</li>
+                        <li><i class="fas fa-check"></i>Trading Psychology</li>
                     </ul>
+                    <a href="forex.html" class="impact-link">
+                        Join Program <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <!-- More impact cards... -->
+
+                <div class="impact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Youth Empowerment</h3>
+                    <div class="impact-stats">
+                        <div class="stat">
+                            <span class="number">20+</span>
+                            <span>Community Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">5000+</span>
+                            <span>Youth Impacted</span>
+                        </div>
+                    </div>
+                    <p>Creating opportunities through mentorship, skills training, and community development.</p>
+                    <ul class="impact-features">
+                        <li><i class="fas fa-check"></i>Leadership Training</li>
+                        <li><i class="fas fa-check"></i>Business Skills</li>
+                        <li><i class="fas fa-check"></i>Career Guidance</li>
+                    </ul>
+                    <a href="programs.html" class="impact-link">
+                        Get Involved <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Vision Preview -->
-    <section class="vision-preview section">
+    <!-- Vision Preview Section -->
+    <section class="vision-preview">
         <div class="container">
             <div class="vision-content">
-                <div class="vision-text" data-aos="fade-right">
-                    <h2>Vision 2027</h2>
-                    <p>A comprehensive plan for transforming Starehe into a digital hub and center of youth innovation.</p>
-                    <div class="vision-points">
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Tech Innovation Centers</span>
+                <div class="vision-text" data-aos="fade-up">
+                    <span class="vision-badge">Vision 2027</span>
+                    <h2>Building Tomorrow's Starehe</h2>
+                    <p class="vision-description">
+                        Our comprehensive strategy to transform Starehe into a thriving hub of innovation, 
+                        technology, and youth empowerment. We're creating sustainable opportunities for the 
+                        next generation.
+                    </p>
+                    
+                    <div class="vision-milestones">
+                        <div class="milestone">
+                            <div class="milestone-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="milestone-text">
+                                <h4>Tech Innovation Hubs</h4>
+                                <p>5 centers across Starehe by 2025</p>
+                            </div>
                         </div>
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Youth Employment Programs</span>
+                        
+                        <div class="milestone">
+                            <div class="milestone-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="milestone-text">
+                                <h4>Skills Training</h4>
+                                <p>10,000 youth trained by 2026</p>
+                            </div>
                         </div>
-                        <div class="point">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Community Development</span>
+                        
+                        <div class="milestone">
+                            <div class="milestone-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="milestone-text">
+                                <h4>Job Creation</h4>
+                                <p>5,000 new jobs by 2027</p>
+                            </div>
                         </div>
                     </div>
-                    <a href="vision.html" class="btn btn-primary">Learn More</a>
+                    
+                    <div class="vision-cta">
+                        <a href="vision.html" class="btn btn-primary">
+                            <span>Explore Full Vision</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <span>Get Involved</span>
+                            <i class="fas fa-users"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="vision-image" data-aos="fade-left">
-                    <img src="assets/images/kplogo.png" alt="Vision 2027">
+                
+                <div class="vision-media" data-aos="fade-up" data-aos-delay="200">
+                    <div class="vision-image-container">
+                        <img 
+                            src="assets/images/kplogo.png" 
+                            alt="Starehe Innovation Hub Concept"
+                            width="600"
+                            height="400"
+                            loading="lazy"
+                        >
+                        <div class="vision-stats-overlay">
+                            <div class="v-stat">
+                                <span class="number">5</span>
+                                <span class="label">Tech Hubs</span>
+                            </div>
+                            <div class="v-stat">
+                                <span class="number">10K+</span>
+                                <span class="label">Jobs Created</span>
+                            </div>
+                            <div class="v-stat">
+                                <span class="number">20M+</span>
+                                <span class="label">Investment</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
