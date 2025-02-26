@@ -1,0 +1,174 @@
+/* Manifesto Specific Styles */
+.manifesto-hero {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 12rem 0 8rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.manifesto-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/pattern.svg');
+    opacity: 0.1;
+}
+
+.manifesto-hero h1 {
+    font-size: clamp(3.6rem, 8vw, 5.6rem);
+    margin-bottom: 2rem;
+}
+
+.manifesto-hero p {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    opacity: 0.9;
+}
+
+/* Points Grid */
+.manifesto-points {
+    padding: 8rem 0;
+    background: var(--light-bg);
+}
+
+.points-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: -6rem;
+}
+
+.point-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.point-card:hover {
+    transform: translateY(-5px);
+}
+
+.point-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.point-number {
+    font-size: 4.8rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.5;
+}
+
+.point-icon {
+    width: 6rem;
+    height: 6rem;
+    background: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.point-icon i {
+    font-size: 2.4rem;
+    color: var(--primary-red);
+}
+
+.point-card h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-text);
+}
+
+.point-card p {
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 2rem;
+}
+
+.point-features {
+    list-style: none;
+    margin-bottom: 3rem;
+}
+
+.point-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-text);
+}
+
+.point-features li::before {
+    content: '•';
+    color: var(--primary-red);
+    font-size: 2rem;
+}
+
+.point-progress {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: 1.5rem;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: var(--primary-text);
+}
+
+.progress-bar {
+    height: 0.8rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 1rem;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .manifesto-points {
+        padding: 6rem 0;
+    }
+
+    .points-grid {
+        margin-top: -4rem;
+    }
+
+    .point-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .point-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .point-number {
+        font-size: 3.6rem;
+    }
+} 
