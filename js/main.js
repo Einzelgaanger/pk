@@ -10,11 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navbar Scroll Handling
     const navbar = document.querySelector('.navbar');
     const menuBtn = document.querySelector('.menu-btn');
-    const closeMenu = document.querySelector('.close-menu');
     const navLinks = document.querySelector('.nav-links');
-    const menuOverlay = document.createElement('div');
-    menuOverlay.className = 'menu-overlay';
-    document.body.appendChild(menuOverlay);
+    const menuOverlay = document.querySelector('.menu-overlay');
     let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
@@ -37,31 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile Menu Handling
-    const navMenu = document.querySelector('.nav-menu');
-
     function toggleMenu() {
-        navMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
         document.body.classList.toggle('menu-open');
     }
 
     function closeMenuHandler() {
-        navMenu.classList.remove('active');
+        navLinks.classList.remove('active');
         document.body.classList.remove('menu-open');
     }
 
     menuBtn.addEventListener('click', toggleMenu);
-    closeMenu.addEventListener('click', closeMenuHandler);
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-            closeMenuHandler();
-        }
-    });
+    menuOverlay.addEventListener('click', closeMenuHandler);
 
     // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
+    document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', closeMenuHandler);
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMenuHandler();
+        }
     });
 
     // Stats Counter Animation
