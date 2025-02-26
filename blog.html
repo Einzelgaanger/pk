@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Kenyan Prince</title>
-    <meta name="description" content="Stay updated with the latest news, insights, and stories about our community initiatives, forex trading, and youth empowerment programs.">
+    <meta name="description" content="Latest updates, news and insights from Kenyan Prince's initiatives in Starehe">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 </head>
 <body>
     <!-- Navigation (Same as other pages) -->
@@ -17,50 +15,52 @@
         <!-- ... navigation content ... -->
     </nav>
 
-    <!-- Blog Hero -->
-    <section class="blog-hero">
-        <div class="blog-hero-content" data-aos="fade-up">
-            <h1>Latest Updates</h1>
-            <p>Insights, News, and Community Stories</p>
-        </div>
-    </section>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="index.html" class="back-btn" aria-label="Back to Home">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="page-title">Latest Updates</h1>
+    </header>
 
-    <!-- Blog Filter -->
-    <section class="blog-filter">
+    <!-- Featured Post -->
+    <section class="featured-post">
         <div class="container">
-            <div class="filter-container">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search articles...">
-                    <i class="fas fa-search"></i>
+            <div class="featured-content" data-aos="fade-up">
+                <div class="featured-image">
+                    <img src="assets/images/blog/featured.jpg" alt="Featured Post" loading="lazy">
+                    <div class="featured-tag">Featured</div>
                 </div>
-                <div class="category-filters">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="community">Community</button>
-                    <button class="filter-btn" data-category="forex">Forex</button>
-                    <button class="filter-btn" data-category="youth">Youth</button>
-                    <button class="filter-btn" data-category="development">Development</button>
+                <div class="featured-text">
+                    <div class="post-meta">
+                        <span class="category">Community</span>
+                        <span class="date">June 15, 2024</span>
+                    </div>
+                    <h2>Launch of First Tech Innovation Hub in Starehe</h2>
+                    <p>A milestone achievement in our digital transformation journey, providing state-of-the-art facilities for youth development...</p>
+                    <div class="post-footer">
+                        <a href="blog-post.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                        <div class="post-stats">
+                            <span><i class="far fa-eye"></i> 1.2K</span>
+                            <span><i class="far fa-comment"></i> 45</span>
+                            <span><i class="far fa-heart"></i> 230</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Post -->
-    <section class="featured-post">
+    <!-- Blog Categories -->
+    <section class="blog-categories">
         <div class="container">
-            <div class="featured-card" data-aos="fade-up">
-                <div class="featured-image">
-                    <img src="assets/images/kplogo.png" alt="Featured Post">
-                    <div class="category">Community</div>
-                </div>
-                <div class="featured-content">
-                    <div class="meta">
-                        <span class="date">June 15, 2024</span>
-                        <span class="read-time">5 min read</span>
-                    </div>
-                    <h2>Transforming Starehe: A Vision for Digital Innovation</h2>
-                    <p>Exploring how technology and youth empowerment can revolutionize our community...</p>
-                    <a href="blog-post.html" class="read-more">Read Full Article <i class="fas fa-arrow-right"></i></a>
-                </div>
+            <div class="categories-wrapper">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Technology</button>
+                <button class="category-btn">Community</button>
+                <button class="category-btn">Education</button>
+                <button class="category-btn">Healthcare</button>
+                <button class="category-btn">Infrastructure</button>
             </div>
         </div>
     </section>
@@ -68,24 +68,51 @@
     <!-- Blog Grid -->
     <section class="blog-grid">
         <div class="container">
-            <div class="posts-grid" id="postsGrid">
-                <!-- Blog posts will be dynamically inserted here -->
+            <div class="posts-grid">
+                <!-- Blog Post Cards -->
+                <article class="post-card" data-aos="fade-up">
+                    <div class="post-image">
+                        <img src="assets/images/blog/post1.jpg" alt="Blog Post" loading="lazy">
+                        <div class="post-category">Technology</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="date"><i class="far fa-calendar"></i> June 12, 2024</span>
+                            <span class="read-time"><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <h3>Digital Skills Training Program Reaches 500 Youth</h3>
+                        <p>Empowering the next generation with essential digital skills for the modern workforce...</p>
+                        <div class="post-footer">
+                            <a href="blog-post.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 856</span>
+                                <span><i class="far fa-comment"></i> 32</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- More post cards... -->
             </div>
-            <div class="load-more">
-                <button id="loadMoreBtn" class="btn btn-primary">Load More</button>
+
+            <!-- Load More -->
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn btn-primary">
+                    Load More Posts <i class="fas fa-spinner"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
+    <!-- Newsletter Section -->
     <section class="blog-newsletter">
         <div class="container">
             <div class="newsletter-content" data-aos="fade-up">
-                <h2>Subscribe to Our Newsletter</h2>
-                <p>Get the latest updates directly in your inbox</p>
-                <form id="newsletterForm" class="newsletter-form">
+                <h2>Stay Updated</h2>
+                <p>Get the latest news and updates delivered to your inbox</p>
+                <form class="newsletter-form">
                     <div class="form-group">
-                        <input type="email" placeholder="Your email address" required>
+                        <input type="email" placeholder="Enter your email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </div>
                 </form>
@@ -99,7 +126,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="js/blog.js"></script>
 </body>
